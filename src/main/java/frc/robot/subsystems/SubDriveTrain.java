@@ -14,12 +14,12 @@ package frc.robot.subsystems;
 
 import frc.robot.Constants.CAN_ID_Constants;
 import frc.robot.Constants.JoyStick_Constants;
-import frc.robot.hardware.WL_Spark;
 //import frc.robot.commands.*;
 import frc.robot.CommonLogic;
 //import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -48,8 +48,8 @@ public class SubDriveTrain extends SubsystemBase {
     private TalonSRX CanSpark_driveRight_2;
 
 
-    private final double kDT_powerRightScaler = 1.0;
-    private final double kDT_powerLeftScaler = 1.0;
+    private final double kDT_powerRightScaler = 0.6;
+    private final double kDT_powerLeftScaler = 0.6;
     private final double kMinThrottle = -1.0;
     private final double kMaxThrottle = 1.0;
 
@@ -152,9 +152,9 @@ public class SubDriveTrain extends SubsystemBase {
      * 
      * @param stick joyStick that currently has control of the wheels
      */
-    public void Drive(Joystick stick) {
-         double joyX = CommonLogic.joyDeadBand(-stick.getX(), JoyStick_Constants.DriveDeadband);
-         double joyY = CommonLogic.joyDeadBand(-stick.getY(), JoyStick_Constants.DriveDeadband);
+    public void Drive(XboxController stick) {
+         double joyX = CommonLogic.joyDeadBand(-stick.getRightX(), JoyStick_Constants.DriveDeadband);
+         double joyY = CommonLogic.joyDeadBand(-stick.getLeftY(), JoyStick_Constants.DriveDeadband);
         Drive((joyY - joyX), (joyY + joyX));
     }
 

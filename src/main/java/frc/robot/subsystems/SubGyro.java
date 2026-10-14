@@ -1,9 +1,9 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.wpilibj.SPI;
 
-import com.kauailabs.navx.frc.AHRS;
+import com.studica.frc.AHRS;
+import com.studica.frc.AHRS.NavXComType;
 
 public class SubGyro extends SubsystemBase {
 
@@ -11,7 +11,7 @@ public class SubGyro extends SubsystemBase {
   public static double navxOffset = 0.0;
 
   public SubGyro() {
-    navx = new AHRS(SPI.Port.kMXP);
+    navx = new AHRS(NavXComType.kMXP_SPI);
     resetNavx();
   }
 

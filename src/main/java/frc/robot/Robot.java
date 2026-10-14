@@ -122,9 +122,9 @@ public class Robot extends TimedRobot {
     public void teleopPeriodic() {
 
         System.err.println("***TeleopPeriodic");
-        RobotContainer.getInstance().subDriveTrain.Drive(RobotContainer.getInstance().joyRc);
-        System.err.println("****  Y- is " + RobotContainer.getInstance().joyRc.getY());
-        System.err.println("****  X- is " + RobotContainer.getInstance().joyRc.getX());
+        RobotContainer.getInstance().subDriveTrain.Drive(RobotContainer.getInstance().getJoyXbox());
+        System.err.println("****  Y- is " + RobotContainer.getInstance().getJoyXbox().getRightY());
+        System.err.println("****  X- is " + RobotContainer.getInstance().getJoyXbox().getLeftX());
 
     }
 
